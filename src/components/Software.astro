@@ -1,0 +1,36 @@
+---
+import Table from "@/components/Table.astro";
+---
+
+<Table header="ソフトウェア(Software)">
+  <thead slot="head">
+    <tr>
+      <th colspan="2">フォーラム</th>
+      <th>更新日</th>
+    </tr>
+  </thead>
+  <tbody slot="body">
+    <tr>
+      <td class="row1" align="center" valign="middle">
+        <img src="/weather.png" width="32" height="32" alt="机上予報" title="机上予報" />
+      </td>
+      <td class="row1">
+        <span class="forumlink">机上予報<br /></span>
+        <span class="genmed">
+          <font color="red">机上予報の公開は終了しました。</font>
+        </span>
+        <span class="gensmall">&nbsp; &nbsp;</span>
+      </td>
+      <td class="row1" align="center" valign="middle">
+        <!--更新日-->2023/01/30<!--/更新日-->
+        <span class="gensmall"></span>
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+<style>
+  td:nth-child(2) {
+    width: 100%;
+  }
+</style>

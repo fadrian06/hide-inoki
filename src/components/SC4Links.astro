@@ -1,0 +1,94 @@
+---
+import Table from "@/components/Table.astro";
+
+const links = [
+  {
+    href: "/sc4/index.html",
+    title: "SimCity4 改造情報",
+    content:
+      "ilive readerの使い方や改造のチュートリアルなど、SimCity4の改造方法に関する情報をまとめています。",
+    topics: "",
+    articles: "",
+    footer: "ラグ太郎",
+  },
+  {
+    href: "bbs/archives/sc4_01.html",
+    title: "作品公開掲示板",
+    content: "BATで製作したロットやMODが公開されています。",
+    topics: 249,
+    articles: 1465,
+    footer: "14 Jan 2015 01:11 pm, Gobanboshi",
+  },
+  {
+    href: "bbs/archives/sc4old_01.html",
+    title: "旧・改造ロット投稿掲示板",
+    content: "が開設される前に投稿された作品はこちらに纏めています。",
+    topics: 64,
+    articles: 67,
+    footer: "05 Dec 2004 06:12 pm, ラグ太郎",
+  },
+  {
+    href: "bbs/archives/sc4mod_01.html",
+    title: "SimCity4改造関連掲示板",
+    content: "SimCity4の改造に関する話題を扱った掲示板です。ここで出た話題は",
+    contentLink: {
+      href: "bbs/archives/sc4/index.html",
+      title: "SimCity4 改造情報",
+    },
+    contentFooter: "に反映されています。",
+    topics: 151,
+    articles: 665,
+    footer: "06 May 2014 10:20 pm, kikki",
+  },
+];
+---
+
+<Table header="SimCity4">
+  <thead slot="head">
+    <tr>
+      <th colspan="2">フォーラム</th>
+      <th>トピック</th>
+      <th>記事</th>
+      <th>最新記事</th>
+    </tr>
+  </thead>
+  <tbody slot="body">
+    {
+      links.map((link) => (
+        <tr>
+          <td class="row1" align="center" valign="middle">
+            <img src="/sc4.png" width="32" height="32" alt="新しい記事なし" title="新しい記事なし" />
+          </td>
+          <td class="row1">
+            <span class="forumlink">
+              <a href={link.href} class="forumlink">
+                {link.title}
+              </a>
+              <br />
+            </span>
+            <span class="genmed">
+              {link.content}
+              {link.contentLink && (
+                <a href={link.contentLink.href} class="forumlink">
+                  {link.contentLink.title}
+                </a>
+              )}
+              {link.contentFooter}
+              <br />
+            </span>
+            <span class="gensmall">&nbsp; &nbsp;</span>
+          </td>
+          <td class="row1" align="center" valign="middle">
+            <span class="gensmall">{link.topics}</span>
+          </td>
+          <td class="row1" align="center" valign="middle">
+            <span class="gensmall">{link.articles}</span>
+          </td>
+          <td class="row1" align="center" valign="middle">
+            <span class="gensmall">{link.footer}</span>
+          </td>
+        </tr>
+      ))
+    }
+  </tbody>
+</Table>

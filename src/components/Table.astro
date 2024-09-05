@@ -1,0 +1,35 @@
+---
+interface Props {
+  header: string;
+}
+---
+
+<div class="header">
+  <div class="tbtl">
+    <img src="/spacer.gif" width="22" height="22" />
+  </div>
+  <div class="tbtbot">
+    <span class="gen">{Astro.props.header}</span>
+  </div>
+  <div class="tbtr">
+    <img src="/spacer.gif" width="124" height="22" />
+  </div>
+</div>
+<table cellpadding="0" cellspacing="1" class="forumline">
+  <slot name="head" />
+  <slot name="body" />
+</table>
+
+<style>
+  .header {
+    display: flex;
+    max-height: 22px;
+    text-align: initial;
+  }
+
+  .tbtbot {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+</style>
